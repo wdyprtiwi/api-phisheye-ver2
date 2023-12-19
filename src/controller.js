@@ -7,7 +7,7 @@ const signup = (req, res) => {
   const { name, email, password } = req.body
 
   // Validate password length
-  if (password.length < 8) {
+  if (!password || password.length < 8) {
     return res.json({ error: true, message: 'Password must be at least 8 characters' })
   }
 
